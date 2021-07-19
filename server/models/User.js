@@ -26,7 +26,7 @@ const userSchema = new Schema({
     }
   });
 
-// I LEFT THE CREATE PASSWORD PART BECAUSE WE WILL NEED TO CREATE A PASSWORD FOR CHELCIE AT SOME POINT IN THE DATABASE...
+// I LEFT THE CREATE PASSWORD PART BECAUSE WE WILL NEED TO CREATE A PASSWORD FOR CTHE ADMIN AT SOME POINT IN THE DATABASE...
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
     if (this.isNew || this.isModified('password')) {
