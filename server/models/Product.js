@@ -24,11 +24,13 @@ const productSchema = new Schema({
     ref: 'Print',
     required: true
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  }
+  category: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Category',
+      required: true
+    }
+  ]
 });
 
 const Product = mongoose.model('Product', productSchema);
