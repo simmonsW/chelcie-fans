@@ -18,7 +18,7 @@ const commentSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    replies: [commentSchema]
+    comments: [commentSchema]
   },
   {
     toJSON: {
@@ -27,8 +27,8 @@ const commentSchema = new Schema(
   }
 );
 
-commentSchema.virtual('replyCount').get(function() {
-  return this.replies.length;
+commentSchema.virtual('commentCount').get(function() {
+  return this.comments.length;
 });
 
 module.exports = commentSchema;
