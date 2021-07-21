@@ -56,6 +56,19 @@ const resolvers = {
         return post;
       }
     },
+    addComment: async (parent, { postId, commentText }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: postId },
+          { $push: { comments: { commentText, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedPost;
+      }
+
+      throw new AuthenticationError('You need to be logged in');
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
