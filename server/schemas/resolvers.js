@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('post')
+          .populate('posts')
           .populate('friends');
 
         return userData;
@@ -20,6 +20,21 @@ const resolvers = {
       const params = username ? { username } : {};
       return Post.find(params).sort({ createdAt: -1 });
     },
+    post: async (parent, { _id }) => {
+      return Post.findOne({ _id });
+    },
+    users: async () => {
+      return User.find()
+        .select('-__v -password')
+        .populate('friends')
+        .populate('posts');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('friends')
+        .populate('posts');
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
