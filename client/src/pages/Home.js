@@ -24,8 +24,6 @@ const Home = () => {
   let quoteString = "";
 
   /*Api Call*/
-  getQuote() {
-
     var axios = require("axios").default;
 
     var options = {
@@ -42,10 +40,7 @@ const Home = () => {
       quoteString = response.data.body.setup + " " + response.data.body.punchline;
     }).catch(function (error) {
       console.error(error);
-    }); 
-  }
-  
-  getQuote();
+    });
 
   return (
     <main>
