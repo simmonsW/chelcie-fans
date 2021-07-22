@@ -51,12 +51,15 @@ const Home = () => {
     <main>
       <div className="flex-row justify-space-between">
         {/* Quote of the Day */}
-        <h2> Dark Room: Quote of the Day </h2>
-        <div>
+        <h2 className= "justify-center-md"> Dark Room: Quote of the Day </h2>
+        <div className= "justify-center-md">
           {`${quoteString}`}
         </div>
 
         {/* Reviews */}
+        <h3 className= "justify-center-md"> "Revolutionary" - New York Times </h3>
+        <h3 className= "justify-center-md"> "Mediocre" - PawPals </h3>
+
         {loggedIn && (
           <div className="col-12 mb-3">
             <PostForm />
