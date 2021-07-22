@@ -20,7 +20,6 @@ const typeDefs = gql`
     commentText: String
     createdAt: String
     username: String
-    comments: [Comment]
   }
 
   type User {
@@ -45,7 +44,6 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addPost(postText: String!): Post
     addComment(postId: ID!, commentText: String!): Post
-    addReply(postId: ID!, CommentId: ID!, commentBody: String!): Post
     addFriend(friendId: ID!): User
   }
 `;
