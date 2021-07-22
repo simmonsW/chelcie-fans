@@ -1,12 +1,12 @@
 const { Schema } = require('mongoose');
-const threadSchema = require('./Thread');
 const dateFormat = require('../utils/dateFormat');
 
-const replySchema = new Schema(
+const commentSchema = new Schema(
   {
-    replyBody: {
+    commentText: {
       type: String,
       required: true,
+      minlength: 1,
       maxlength: 280
     },
     username: {
@@ -18,7 +18,7 @@ const replySchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    threads: [threadSchema]
+    replies: [commentSchema]
   },
   {
     toJSON: {
@@ -27,4 +27,8 @@ const replySchema = new Schema(
   }
 );
 
-module.exports = replySchema;
+commentSchema.virtual('replyCount').get(function() {
+  return this.replies.length;
+});
+
+module.exports = commentSchema;

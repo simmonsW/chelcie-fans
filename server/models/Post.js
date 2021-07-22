@@ -1,12 +1,12 @@
 const { Schema, model } = require('mongoose');
-const replySchema = require('./Reply');
+const commentSchema = require('./Comment');
 const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
   {
     postText: {
       type: String,
-      required: 'You need to leave a post!',
+      required: 'You need to create the post text',
       minlength: 1,
       maxlength: 280
     },
@@ -15,11 +15,12 @@ const postSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    username: {
-      type: String,
+    createdBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
       required: true
     },
-    replies: [replySchema]
+    comments: [commentSchema]
   },
   {
     toJSON: {
@@ -28,8 +29,8 @@ const postSchema = new Schema(
   }
 );
 
-postSchema.virtual('replyCount').get(function() {
-  return this.replies.length;
+postSchema.virtual('commentCount').get(function() {
+  return this.comments.length;
 });
 
 const Post = model('Post', postSchema);
