@@ -70,6 +70,19 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in');
     },
+    removePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: postId } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in');
+    },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
@@ -107,6 +120,19 @@ const resolvers = {
           { $addToSet: { friends: friendId } },
           { new: true }
         ).populate('friends');
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in');
+    },
+    removeFriend: async (parent, { friendId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { friends: friendId } },
+          { new: true }
+        );
 
         return updatedUser;
       }
