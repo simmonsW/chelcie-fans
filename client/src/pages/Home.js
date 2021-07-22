@@ -42,8 +42,10 @@ const Home = () => {
       quoteString = response.data.body.setup + " " + response.data.body.punchline;
     }).catch(function (error) {
       console.error(error);
-    });
- 
+    }); 
+  }
+  
+  getQuote();
 
   return (
     <main>
