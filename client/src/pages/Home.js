@@ -24,7 +24,6 @@ const Home = () => {
   let quoteString = "";
 
   /*Api Call*/
-  getQuote() {
 
     var axios = require("axios").default;
 
@@ -43,9 +42,6 @@ const Home = () => {
     }).catch(function (error) {
       console.error(error);
     }); 
-  }
-  
-  getQuote();
 
   return (
     <main>
