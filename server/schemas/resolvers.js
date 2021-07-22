@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Post, Chat } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -9,7 +9,11 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
           .populate('posts')
-          .populate('friends');
+          .populate('friends')
+          .populate({
+            path: 'chats',
+            populate: { path: 'users' }
+          });
 
         return userData;
       }
@@ -27,13 +31,21 @@ const resolvers = {
       return User.find()
         .select('-__v -password')
         .populate('friends')
-        .populate('posts');
+        .populate('posts')
+        .populate({
+          path: 'chats',
+          populate: { path: 'users' }
+        });
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
-        .populate('posts');
+        .populate('posts')
+        .populate({
+          path: 'chats',
+          populate: { path: 'users' }
+        });
     }
   },
   Mutation: {
@@ -97,6 +109,37 @@ const resolvers = {
         ).populate('friends');
 
         return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in');
+    },
+    sendMessage: async (parent, { otherUserId, commentText }, context) => {
+      const userIdArr = [ otherUserId, context.user._id ];
+
+      if (context.user) {
+        const messageChat = await Chat.findOne(
+          { users: userIdArr }
+        );
+
+        if (!messageChat) {
+          const newChat = await Chat.create({ users: userIdArr, messages: [] });
+
+          userIdArr.forEach(async function(userId) {
+            await User.findOneAndUpdate(
+              { _id: userId },
+              { $push: { chats: newChat._id } },
+              { new: true }
+            );
+          })
+        }
+
+        const sentMessageChat = await Chat.findOneAndUpdate(
+          { users: userIdArr },
+          { $push: { messages: { commentText, username: context.user.username } } },
+          { new: true, runValidators: true }
+        ).populate('users');
+
+        return sentMessageChat;
       }
 
       throw new AuthenticationError('You need to be logged in');

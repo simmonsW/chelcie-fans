@@ -22,6 +22,13 @@ const typeDefs = gql`
     username: String
   }
 
+  type Chat {
+    _id: ID
+    users: [User]
+    messageCount: Int
+    messages: [Comment]
+  }
+
   type User {
     _id: ID
     username: String
@@ -29,6 +36,7 @@ const typeDefs = gql`
     friendCount: Int
     posts: [Post]
     friends: [User]
+    chats: [Chat]
   }
 
   type Query {
@@ -45,6 +53,7 @@ const typeDefs = gql`
     addPost(postText: String!): Post
     addComment(postId: ID!, commentText: String!): Post
     addFriend(friendId: ID!): User
+    sendMessage(otherUserId: ID!, commentText: String!): Chat
   }
 `;
 
