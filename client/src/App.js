@@ -48,8 +48,8 @@ function App() {
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/profile/:username?" component={Profile} />
                 <Route exact path="/post/:id" component={SinglePost} />
-                <Route component={NoMatch} />
                 <Route exact path="/about" component={About}/>
+                <Route component={NoMatch} />
               </Switch>
             </div>
           <Footer />
