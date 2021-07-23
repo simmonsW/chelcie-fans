@@ -24,6 +24,7 @@ const Home = () => {
 
   /*Api Call*/
 
+
   var axios = require("axios").default;
 
   var options = {
@@ -41,6 +42,7 @@ const Home = () => {
   }).catch(function (error) {
     console.error(error);
   }); 
+
 
   return (
     <main>

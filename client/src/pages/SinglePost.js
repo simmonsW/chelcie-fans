@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_POST } from '../utils/queries';
 import ReplyList from '../components/ReplyList';
-import ReplyForm from '../components/ReplyForm'
+import ReplyForm from '../components/ReplyForm';
 import Auth from '../utils/auth';
 
 
@@ -37,7 +37,7 @@ const SinglePost = props => {
         </div>
       </div>
 
-      {post.replyCount > 0 && <ReplyList replies={post.replies} />}
+      {post.commentCount > 0 && <ReplyList comments={post.comments} />}
       {Auth.loggedIn() && <ReplyForm postId={post._id} />}
     </div>
   );
