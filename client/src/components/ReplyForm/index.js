@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 
 // import { useMutation } from '@apollo/react-hooks';
 import { useMutation } from '@apollo/client';
-import { ADD_REPLY } from '../../utils/mutations';
+import { ADD_COMMENT } from '../../utils/mutations';
 
 const ReplyForm = ({ postId }) => {
     const [replyBody, setBody] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
-    const [addReply, { error }] = useMutation(ADD_REPLY);
+    const [addReply, { error }] = useMutation(ADD_COMMENT);
   
     // update state based on form input changes
     const handleChange = event => {
