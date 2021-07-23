@@ -43,7 +43,7 @@ function ContactForm() {
     // JSX
     return (
         <section>
-            <h1 data-testid="h1tag">Contact Dark Room</h1>
+            <h1 data-testid="h1tag">Contact Chelcie</h1>
             <form id="contact-form" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
