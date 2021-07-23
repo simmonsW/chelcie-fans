@@ -152,7 +152,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2);
-  border: 2px solid black;
+  border: 5px solid #CBDF90;
   border-radius: 50px;
   margin-bottom: 20px;
   /* padding: 40px; */
@@ -195,6 +195,24 @@ nav a:hover {
 .input {
   font-size: 14px;
   line-height: 2em;
+}
+
+/* ABOUT PAGE */
+
+#about {
+  text-align: center;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+}
+
+.responsive {
+  align-items: center;
+  min-width: 260px;
+  border-radius: 500px;
+  border: 6px solid #CBDF90;
 }
 
 /* CARDS */
