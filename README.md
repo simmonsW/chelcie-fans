@@ -9,7 +9,7 @@
 * [Link URL of deployed app to Heroku](#link-URL-of-deployed-app-to-Heroku)
 
 ## **_Description of the project_**
-This single page MERN app is [Chelcie's](#Chelcie's) fanpage website where users can create an account, post their posts for others to see, and interact with other users through these posts, be friends with each other and comments on posts. This application also uses front-end routing, api requests (queries and mutations) and user authentication.
+This single page MERN app is [Chelcie's](https://github.com/ChelcieDeAlmeida) fanpage website where users can create an account, post their posts for others to see, and interact with other users through these posts, be friends with each other and comments on posts. This application also uses front-end routing, api requests (queries and mutations) and user authentication.
 
 ## **_Technologies used_**
 Project is created using:
