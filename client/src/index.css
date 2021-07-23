@@ -1,6 +1,6 @@
 :root {
   --primary: #2e0e52;
-  --secondary: #f799cd;
+  --secondary: pink;
   --tertiary: #c2b2bf;
   --quatrinary: #dbcada;
   --light: #f3e1f5;
@@ -129,6 +129,72 @@ nav a:hover {
 
 .btn-inline {
   display: inline;
+}
+
+/* CONTACT FORM */
+.contact-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 20vw;
+}
+
+.contact-h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 22px;
+  /* white-space: nowrap; */
+  } 
+
+.contact--form {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid black;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  /* padding: 40px; */
+  }
+
+#btn-submit-form {
+  /* font-weight: bolder; */
+  font-size: 16px;
+  width: 30%;
+  margin: 20px 0 20px 40px;
+  text-decoration: none;
+  padding: 5px 0px;
+  /* outline: none; */
+  cursor: pointer;
+  /* color: ; */
+  border: 1px solid black;
+  border-radius: 50px;
+  /* background-color: ; */
+}
+
+#btn-submit-form:hover {
+  background-color: pink;
+}
+
+.form-line {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 0px;
+  margin: 0 20px;
+}
+
+.label {
+  font-weight: bolder;
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.input {
+  font-size: 14px;
+  line-height: 2em;
 }
 
 /* CARDS */
