@@ -1,7 +1,7 @@
 // Contact form to send to the founder
 
 import React, { useState } from 'react';
-import { validateEmail } from '../../utils/helpers';
+// import { validateEmail } from '../../utils/helpers';
 
 function ContactForm() {
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -9,42 +9,43 @@ function ContactForm() {
     const [errorMessage, setErrorMessage] = useState('');
 
     function handleChange(e) {
-        if (e.target.name === 'email') {
-            const isValid = validateEmail(e.target.value);
-            console.log(isValid);
-            // isValid conditional statement
-            if (!isValid) {
-                setErrorMessage('Your email is invalid.');
-            } else {
-                setErrorMessage('');
-            }
-        } else {
-            if (!e.target.value.length) {
-              setErrorMessage(`${e.target.name} is required.`);
-            } else {
-              setErrorMessage('');
-            }
-        }
+    //     if (e.target.name === 'email') {
+    //         const isValid = validateEmail(e.target.value);
+    //         console.log(isValid);
+    //         // isValid conditional statement
+    //         if (!isValid) {
+    //             setErrorMessage('Your email is invalid.');
+    //         } else {
+    //             setErrorMessage('');
+    //         }
+    //     } else {
+    //         if (!e.target.value.length) {
+    //           setErrorMessage(`${e.target.name} is required.`);
+    //         } else {
+    //           setErrorMessage('');
+    //         }
+    //     }
 
-        // console.log('errorMessage', errorMessage);
+    //     // console.log('errorMessage', errorMessage);
 
-        if (!errorMessage) {
-            setFormState({ ...formState, [e.target.name]: e.target.value });
-        }
-    }
+    //     if (!errorMessage) {
+    //         setFormState({ ...formState, [e.target.name]: e.target.value });
+    //     }
+    // }
       
-    // console.log(formState);
+    // // console.log(formState);
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(formState);
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     console.log(formState);
     }
 
     // JSX
     return (
         <section>
             <h1 data-testid="h1tag">Contact Chelcie</h1>
-            <form id="contact-form" onSubmit={handleSubmit}>
+            {/* <form id="contact-form" onSubmit={handleSubmit}> */}
+            <form id="contact-form">
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input type="text" defaultValue={name} onBlur={handleChange} name="name" />
