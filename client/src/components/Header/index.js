@@ -16,7 +16,7 @@ const Header = () => {
           <h1>Chelcie Fans</h1>
         </Link>
 
-        <nav className="text-center">
+        <nav className="text-center nav-items">
             <Link to="/about">About</Link>
           {Auth.loggedIn() ? (
             <>

@@ -1,6 +1,6 @@
 :root {
   --primary: #2e0e52;
-  --secondary: pink;
+  --secondary: #5598acff;
   --tertiary: #c2b2bf;
   --quatrinary: #dbcada;
   --light: #f3e1f5;
@@ -31,7 +31,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #fff3fee1;
+  background-color: white;
 }
 
 h1,
@@ -48,6 +48,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  color: #cbdf90ff;
 }
 
 h2 {
@@ -87,17 +88,20 @@ a:visited {
 nav {
   width: 100%;
   justify-content: center;
+  color: #cbdf90ff; 
 }
 
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
+  color: #cbdf90ff; 
 }
 
 nav a:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: #5598acff;
+  background-color: #cbdf90ff;
+  border-radius: 50px;
 }
 
 .page-title {
@@ -129,6 +133,17 @@ nav a:hover {
 
 .btn-inline {
   display: inline;
+}
+
+/* HOME PAGE */
+
+#joke-of-the-day {
+  background-color: #cbdf90ff;
+  width: 200%;
+  margin-top: -29px;
+  margin-left: -106px;
+  margin-right: -606px;
+  padding: 100px;
 }
 
 /* CONTACT FORM */
@@ -215,6 +230,12 @@ nav a:hover {
   border: 6px solid #CBDF90;
 }
 
+/* HOME */
+
+#postlist-component {
+  margin-top: 40px;
+}
+
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
@@ -227,14 +248,19 @@ nav a:hover {
 .card-header {
   color: var(--secondary);
   margin: 0;
-  background-color: var(--dark);
+  background-color: #eeeeeeff;
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+div.card.mb-3 {
+  border-color: #5598ac;
 }
 
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+  background-color:white;
 }
 
 /* FORM */

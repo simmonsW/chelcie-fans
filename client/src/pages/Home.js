@@ -3,6 +3,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import PostList from '../components/PostList';
+import Joke from '../components/Joke';
 import { QUERY_POSTS, QUERY_ME_BASIC } from '../utils/queries';
 import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
@@ -46,27 +47,32 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-space-between">
         {/* Quote of the Day */}
-        <h2 className= "justify-center-md"> Dad joke of the Day </h2>
+        <div>
+          <Joke />
+        </div>
+        {/* <div id="joke-of-the-day">
+          <h2 className= "justify-center-md"> Dad joke of the Day - Chelcie </h2>
+        </div> */}
+        <div className="flex-row justify-space-between">
         <div className= "justify-center-md">
           {`${quoteString}`}
         </div>
 
         {/* Reviews */}
-        <h3 className= "justify-center-md"> "Revolutionary" - New York Times </h3>
-        <h3 className= "justify-center-md"> "Mediocre" - PawPals </h3>
+        {/* <h3 className= "justify-center-md"> "Revolutionary" - New York Times </h3>
+        <h3 className= "justify-center-md"> "Mediocre" - PawPals </h3> */}
 
         {loggedIn && (
           <div className="col-12 mb-3">
             <PostForm />
           </div>
         )}
-        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+        <div id="postlist-component" className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <PostList posts={posts} title="Some Feed for Post(s)..." />
+            <PostList posts={posts} title="What's on your mind?..." />
 
           )}
         </div> 
