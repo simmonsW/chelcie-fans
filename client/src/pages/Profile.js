@@ -39,7 +39,7 @@ const Profile = () => {
   const handleClick = async () => {
     try {
       await addFriend({
-        variables: { id: user._id }
+        variables: { friendId: user._id }
       });
     } catch (e) {
       console.error(e);
