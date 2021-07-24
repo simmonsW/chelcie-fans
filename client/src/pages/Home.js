@@ -9,7 +9,8 @@ import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
 
 // let quoteString = "";
-let quoteString;
+// var quoteObject = {};
+let testString = "test text";
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
 
   apiCall();
+  console.log( "API call completed!" + testString);
 
   return (
     <main>
@@ -31,7 +33,8 @@ const Home = () => {
         {/* Quote of the Day */}
         <h2 className= "justify-center-md"> Dad Joke of the Day </h2>
         <div className= "justify-center-md">
-          {`${quoteString}`}
+          {/* {`${quoteObject}`} */}
+          Joke: {testString}
 
         </div>
 
@@ -68,7 +71,6 @@ const Home = () => {
 
 
 function apiCall() {
-  /*Api Call*/
 
   var axios = require("axios").default;
 
@@ -82,15 +84,20 @@ function apiCall() {
   };
   
   axios.request(options).then(function (response) {
-    console.log(response.data);
-    let quoteString = response.data.joke;
-    console.log(response.data + "DAD JOKE");
-    return quoteString;
-    // return quoteString;
+    // when text/plain is accepted
+    console.log("FETCHED! " + response.data);
+    testString = response.data;
+    return testString;
+
+    // when application/json is accepted
+    // console.log("FETCHED! " + response.data.joke);
+    // quoteObject = response;
   }).catch(function (error) {
     console.error(error);
   }); 
 }
+
+
 
 
 
