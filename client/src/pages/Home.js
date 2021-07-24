@@ -8,7 +8,7 @@ import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
 
-let quoteString = [];
+let quoteString = "";
 
 
 const Home = () => {
@@ -22,13 +22,16 @@ const Home = () => {
 
   const loggedIn = Auth.loggedIn();
 
+  apiCall();
+
   return (
     <main>
       <div className="flex-row justify-space-between">
         {/* Quote of the Day */}
-        <h2 className= "justify-center-md"> Dad joke of the Day </h2>
+        <h2 className= "justify-center-md"> Dad Joke of the Day </h2>
         <div className= "justify-center-md">
           {`${quoteString}`}
+
         </div>
 
         {/* Reviews */}
@@ -71,8 +74,9 @@ function apiCall() {
   var options = {
     method: 'GET',
     url: 'https://icanhazdadjoke.com/',
-    // headers: {
-    // }
+    headers: {
+      "Accept": "text/plain"
+    }
   };
   
   axios.request(options).then(function (response) {
