@@ -12,8 +12,38 @@ import PostForm from '../components/PostForm';
 // var quoteObject = {};
 let testString = "test text";
 
+apiCall();
+
+async function apiCall() {
+
+  var axios = require("axios").default;
+
+  var options = {
+    method: 'GET',
+    url: 'https://icanhazdadjoke.com/',
+    headers: {
+      "Accept": "text/plain"
+      // "Accept": "application/json"
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+    // when text/plain is accepted
+    console.log("FETCHED! " + response.data);
+    testString = response.data;
+    return testString;
+
+    // when application/json is accepted
+    // console.log("FETCHED! " + response.data.joke);
+    // quoteObject = response;
+  }).catch(function (error) {
+    console.error(error);
+  }); 
+}
+
 
 const Home = () => {
+
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_POSTS);
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
@@ -34,7 +64,7 @@ const Home = () => {
         <h2 className= "justify-center-md"> Dad Joke of the Day </h2>
         <div className= "justify-center-md">
           {/* {`${quoteObject}`} */}
-          Joke: {testString}
+          {testString}
 
         </div>
 
@@ -69,33 +99,6 @@ const Home = () => {
   );
 };
 
-
-function apiCall() {
-
-  var axios = require("axios").default;
-
-  var options = {
-    method: 'GET',
-    url: 'https://icanhazdadjoke.com/',
-    headers: {
-      "Accept": "text/plain"
-      // "Accept": "application/json"
-    }
-  };
-  
-  axios.request(options).then(function (response) {
-    // when text/plain is accepted
-    console.log("FETCHED! " + response.data);
-    testString = response.data;
-    return testString;
-
-    // when application/json is accepted
-    // console.log("FETCHED! " + response.data.joke);
-    // quoteObject = response;
-  }).catch(function (error) {
-    console.error(error);
-  }); 
-}
 
 
 
