@@ -8,7 +8,8 @@ import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
 
-let quoteString = "";
+// let quoteString = "";
+let quoteString;
 
 
 const Home = () => {
@@ -76,13 +77,16 @@ function apiCall() {
     url: 'https://icanhazdadjoke.com/',
     headers: {
       "Accept": "text/plain"
+      // "Accept": "application/json"
     }
   };
   
   axios.request(options).then(function (response) {
     console.log(response.data);
-    quoteString = response.data;
+    let quoteString = response.data.joke;
+    console.log(response.data + "DAD JOKE");
     return quoteString;
+    // return quoteString;
   }).catch(function (error) {
     console.error(error);
   }); 
