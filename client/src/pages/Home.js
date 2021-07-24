@@ -8,6 +8,8 @@ import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
 
+let quoteString = [];
+
 
 const Home = () => {
   // use useQuery hook to make query request
@@ -19,30 +21,6 @@ const Home = () => {
   console.log(posts);
 
   const loggedIn = Auth.loggedIn();
-
-  let quoteString = "";
-
-  /*Api Call*/
-
-
-  var axios = require("axios").default;
-
-  var options = {
-    method: 'GET',
-    url: 'https://dad-jokes.p.rapidapi.com/random/joke',
-    headers: {
-      'x-rapidapi-key': 'fd3c2bc085msh62049fe3043d594p1cd891jsn7d8a7cbcecf8',
-      'x-rapidapi-host': 'dad-jokes.p.rapidapi.com'
-    }
-  };
-  
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-    quoteString = response.data.body.setup + " " + response.data.body.punchline;
-  }).catch(function (error) {
-    console.error(error);
-  }); 
-
 
   return (
     <main>
@@ -83,5 +61,31 @@ const Home = () => {
     </main>
   );
 };
+
+
+function apiCall() {
+  /*Api Call*/
+
+  var axios = require("axios").default;
+
+  var options = {
+    method: 'GET',
+    url: 'https://icanhazdadjoke.com/',
+    // headers: {
+    // }
+  };
+  
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+    quoteString = response.data;
+    return quoteString;
+  }).catch(function (error) {
+    console.error(error);
+  }); 
+}
+
+
+
+
 
 export default Home;
