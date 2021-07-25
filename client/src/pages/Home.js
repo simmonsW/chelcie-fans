@@ -52,6 +52,10 @@ let testString = "test text";
 const Home = () => {
   const [joke, setJoke] = useState("test text");
 
+  if( testString === "test text") {
+    jokeChange();
+  }
+
   function jokeChange() {
     var axios = require("axios").default;
 
@@ -84,7 +88,8 @@ const Home = () => {
     
   }
 
-  jokeChange();
+  // jokeChange();
+  // setTimeout(jokeChange, 1000000000000000000000000);
   
 
   // use useQuery hook to make query request
