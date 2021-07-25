@@ -1,6 +1,6 @@
 // Landing Page, Quote of the Day, Reviews, Submit Post, Posts Feed
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import PostList from '../components/PostList';
 import { QUERY_POSTS, QUERY_ME_BASIC } from '../utils/queries';
@@ -12,37 +12,80 @@ import PostForm from '../components/PostForm';
 // var quoteObject = {};
 let testString = "test text";
 
-apiCall();
+// function apiCall() {
 
-async function apiCall() {
+//   // try {
 
-  var axios = require("axios").default;
+//     var axios = require("axios").default;
 
-  var options = {
-    method: 'GET',
-    url: 'https://icanhazdadjoke.com/',
-    headers: {
-      "Accept": "text/plain"
-      // "Accept": "application/json"
-    }
-  };
+//     var options = {
+//       method: 'GET',
+//       url: 'https://icanhazdadjoke.com/',
+//       headers: {
+//         "Accept": "text/plain"
+//         // "Accept": "application/json"
+//       }
+//     };
+    
+//     axios.request(options).then(function (response) {
+//       // when text/plain is accepted
+//       console.log("FETCHED! " + response.data);
+//       testString = response.data;
+//       return testString;
   
-  axios.request(options).then(function (response) {
-    // when text/plain is accepted
-    console.log("FETCHED! " + response.data);
-    testString = response.data;
-    return testString;
+//       // when application/json is accepted
+//       // console.log("FETCHED! " + response.data.joke);
+//       // quoteObject = response;
+//     }).catch(function (error) {
+//       console.error(error);
+//     }); 
 
-    // when application/json is accepted
-    // console.log("FETCHED! " + response.data.joke);
-    // quoteObject = response;
-  }).catch(function (error) {
-    console.error(error);
-  }); 
-}
+//   // } catch (e) {
+//   //   console.error(e);
+//   // };
+
+// };
+
+
 
 
 const Home = () => {
+  const [joke, setJoke] = useState("test text");
+
+  function jokeChange() {
+    var axios = require("axios").default;
+
+    var options = {
+      method: 'GET',
+      url: 'https://icanhazdadjoke.com/',
+      headers: {
+        "Accept": "text/plain"
+        // "Accept": "application/json"
+      }
+    };
+    
+    axios.request(options).then(function (response) {
+      // when text/plain is accepted
+      console.log("FETCHED! " + response.data);
+      testString = response.data;
+      setJoke(testString);
+  
+      // when application/json is accepted
+      // console.log("FETCHED! " + response.data.joke);
+      // quoteObject = response;
+    }).catch(function (error) {
+      console.error(error);
+    }); 
+
+  // } catch (e) {
+  //   console.error(e);
+  // };
+    // apiCall();
+    
+  }
+
+  jokeChange();
+  
 
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_POSTS);
@@ -54,8 +97,6 @@ const Home = () => {
 
   const loggedIn = Auth.loggedIn();
 
-  apiCall();
-  console.log( "API call completed!" + testString);
 
   return (
     <main>
@@ -64,7 +105,7 @@ const Home = () => {
         <h2 className= "justify-center-md"> Dad Joke of the Day </h2>
         <div className= "justify-center-md">
           {/* {`${quoteObject}`} */}
-          {testString}
+          {joke}
 
         </div>
 
