@@ -3,7 +3,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import PostList from '../components/PostList';
-import Joke from '../components/Joke';
 import { QUERY_POSTS, QUERY_ME_BASIC } from '../utils/queries';
 import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
@@ -49,11 +48,10 @@ const Home = () => {
     <main>
         {/* Quote of the Day */}
         <div>
-          <Joke />
+          <div id="joke-of-the-day">
+            <h2 id="joke" className= "justify-center-md"> 'Dad joke of the Day'  -  Chelcie </h2>
+          </div>
         </div>
-        {/* <div id="joke-of-the-day">
-          <h2 className= "justify-center-md"> Dad joke of the Day - Chelcie </h2>
-        </div> */}
         <div className="flex-row justify-space-between">
         <div className= "justify-center-md">
           {`${quoteString}`}

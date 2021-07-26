@@ -146,6 +146,17 @@ nav a:hover {
   padding: 100px;
 }
 
+#joke {
+  font-family:'Apple Chancery','Monotype Corsiva','ITC Zapf Chancery','URW Chancery L';
+}
+
+/* FOOTER */
+
+footer {
+  background-color: #5598acff;
+  color: #cbdf90ff;
+}
+
 /* CONTACT FORM */
 .contact-form-section {
   display: flex;
@@ -174,22 +185,21 @@ nav a:hover {
   }
 
 #btn-submit-form {
-  /* font-weight: bolder; */
+  font-weight: bolder;
   font-size: 16px;
   width: 30%;
   margin: 20px 0 20px 40px;
   text-decoration: none;
   padding: 5px 0px;
-  /* outline: none; */
   cursor: pointer;
-  /* color: ; */
-  border: 1px solid black;
+  color: white;
+  border: 1px solid #5598acff;
   border-radius: 50px;
-  /* background-color: ; */
+  background-color: #5598acff;
 }
 
 #btn-submit-form:hover {
-  background-color: pink;
+  background-color: rgb(105, 188, 213);
 }
 
 .form-line {
@@ -230,10 +240,56 @@ nav a:hover {
   border: 6px solid #CBDF90;
 }
 
+#photo-chelcie {
+box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#description-about {
+  color: black;
+}
+
 /* HOME */
 
 #postlist-component {
   margin-top: 40px;
+}
+
+#submit-post {
+/* color: #cbdf90ff; */
+color: white;
+}
+
+#connect-home {
+  color: white;
+}
+
+/* SINGLE POST */
+
+/* PROFILE */
+#add-friend-btn {
+  color: white;
+}
+
+#viewing-profile {
+  color: white;
+  background-color: #5598acff;
+}
+
+#submit-reply {
+  color: white;
+  /* background-color: #CBDF90; */
+  /* background-color: #6db75cff; */
+  background-color: #5598acff;
+}
+
+/* SIGN UP */
+#signup-submit {
+color: white;
+}
+
+/* LOG IN */
+#login-submit {
+  color: white;
 }
 
 /* CARDS */
@@ -874,7 +930,13 @@ div.card.mb-3 {
 }
 
 .text-light {
-  color: var(--light);
+  color: #5598acff;
+}
+
+.text-light-other {
+color: #5598acff;
+text-decoration: underline;
+text-decoration-color: rgb(152, 221, 242);
 }
 
 .text-dark {

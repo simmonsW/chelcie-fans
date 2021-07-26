@@ -53,7 +53,7 @@ const ReplyForm = ({ postId }) => {
             onChange={handleChange}
           ></textarea>
   
-          <button className="btn col-12 col-md-3" type="submit">
+          <button id="submit-reply" className="btn col-12 col-md-3" type="submit">
             Submit
           </button>
         </form>
