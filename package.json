@@ -23,5 +23,7 @@
   "devDependencies": {
     "concurrently": "^6.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-icons": "^4.2.0"
+  }
 }
