@@ -116,13 +116,13 @@ nav a:hover {
 }
 
 .trash-post {
-  background-color: var(--light);
+  background-color: var(--secondary);
   padding: 8px 8px 5px 8px;
   border-radius: 10px;
   margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
-  color: red;
+  color: white;
 }
 
 .btn,
