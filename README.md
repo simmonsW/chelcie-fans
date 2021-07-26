@@ -29,7 +29,7 @@ Here are some guidelines for installing the project on your local machine in ord
 
 2. Then, make sure that your repo includes a package.json with the required dependencies. You can create one by running ```npm init``` in your command line, and ```npm i``` or ```npm install``` to install the dependencies.
 
-3. Run ```npm run develop``` in your terminal from the root directory to launch the application. Or check the deployed app directly on the app's heroku link.
+3. Run ```npm run develop``` in your terminal from the root directory to launch the application. Or check the deployed app directly on the app's heroku link (https://secret-hollows-41476.herokuapp.com/).
 
 4. Enjoy and don't hesitate to contribute!
 
@@ -37,3 +37,4 @@ Here are some guidelines for installing the project on your local machine in ord
 https://github.com/simmonsW/chelcie-fans
 
 ## **_Link URL of deployed app to Heroku_**
+https://secret-hollows-41476.herokuapp.com/
