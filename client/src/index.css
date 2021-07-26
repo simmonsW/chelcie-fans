@@ -153,10 +153,10 @@ nav a:hover {
 
 #joke-of-the-day {
   background-color: #cbdf90ff;
-  width: 200%;
-  margin-top: -29px;
+  /* width: 100%; */
+  /* margin-top: -29px;
   margin-left: -106px;
-  margin-right: -606px;
+  margin-right: -606px; */
   padding: 100px;
 }
 

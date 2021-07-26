@@ -49,6 +49,8 @@ let testString = "test text";
 
 
 
+let quoteString;
+
 const Home = () => {
   const [joke, setJoke] = useState("test text");
 
@@ -109,16 +111,17 @@ const Home = () => {
 
       {/* Quote of the Day */}
       <div>
-        <div id="joke-of-the-day">
-          <h2 id="joke" className= "justify-center-md"> 'Dad joke of the Day'  -  Chelcie </h2>
+        <div id="joke-of-the-day" className= "justify-center col-12 text-center">
+            <h2 className= "justify-center col-12 text-center"> Dad Joke of the Day </h2>
+            <h4 className= "justify-center col-12 text-center">
+              {joke}
+            </h4>
         </div>
       </div>
 
       <div className="flex-row justify-space-between">
-        <h2 className= "justify-center col-12 text-center"> Dad Joke of the Day </h2>
-        <h4 className= "justify-center col-12 text-center">
-          {joke}
-        </h4>
+  
+
 
         {/* Reviews */}
         <h3 className= "justify-center col-12 text-center review"> "Revolutionary" - New York Times </h3>
