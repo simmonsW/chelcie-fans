@@ -54,6 +54,7 @@ const Home = () => {
 
   if( testString === "test text") {
     jokeChange();
+    
   }
 
   function jokeChange() {
@@ -106,17 +107,14 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-        {/* Quote of the Day */}
-        <h2 className= "justify-center-md"> Dad Joke of the Day </h2>
-        <div className= "justify-center-md">
-          {/* {`${quoteObject}`} */}
+        <h2 className= "justify-center col-12 text-center"> Dad Joke of the Day </h2>
+        <h4 className= "justify-center col-12 text-center">
           {joke}
-
-        </div>
+        </h4>
 
         {/* Reviews */}
-        <h3 className= "justify-center-md"> "Revolutionary" - New York Times </h3>
-        <h3 className= "justify-center-md"> "Mediocre" - PawPals </h3>
+        <h3 className= "justify-center col-12 text-center review"> "Revolutionary" - New York Times </h3>
+        <h3 className= "justify-center col-12 text-center review"> "Mediocre" - PawPals </h3>
 
         {loggedIn && (
           <div className="col-12 mb-3">
@@ -127,7 +125,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <PostList posts={posts} title="Some Feed for Post(s)..." />
+            <PostList posts={posts} title="Chelcie Feed" />
 
           )}
         </div> 
