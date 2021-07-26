@@ -7,14 +7,14 @@ import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 
 const ReplyForm = ({ postId }) => {
-    const [replyBody, setBody] = useState('');
+    const [commentText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
     const [addReply, { error }] = useMutation(ADD_COMMENT);
   
     // update state based on form input changes
     const handleChange = event => {
       if (event.target.value.length <= 280) {
-        setBody(event.target.value);
+        setText(event.target.value);
         setCharacterCount(event.target.value.length);
       }
     };
@@ -25,11 +25,11 @@ const ReplyForm = ({ postId }) => {
   
       try {
         await addReply({
-          variables: { replyBody, postId }
+          variables: { commentText, postId }
         });
   
         // clear form value
-        setBody('');
+        setText('');
         setCharacterCount(0);
       } catch (e) {
         console.error(e);
@@ -48,12 +48,12 @@ const ReplyForm = ({ postId }) => {
         >
           <textarea
             placeholder="Leave a reply to this post..."
-            value={replyBody}
+            value={commentText}
             className="form-input col-12 col-md-9"
             onChange={handleChange}
           ></textarea>
   
-          <button className="btn col-12 col-md-3" type="submit">
+          <button id="submit-reply" className="btn col-12 col-md-3" type="submit">
             Submit
           </button>
         </form>

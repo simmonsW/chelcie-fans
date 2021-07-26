@@ -9,8 +9,10 @@ const About = () => {
     return (
         <section className="my-5">
           <h1 id="about">About Chelcie</h1>
-          <img src={profileImage} className="my-2" style={{ width: "20%" }} alt="profile photo" />
-          <p>Chelcie is a proud dad of 4 cats, and likes to make dad jokes constantly. He is a traitor to PawPals, and his arch-nemesis is Sequelize.
+            <div className="about-section">
+              <img id="photo-chelcie" src={profileImage} className="my-2 responsive" style={{ width: "20%" }} alt="chelcie's profile photo" />
+            </div>
+          <p id="description-about" >Chelcie is a proud dad of 4 cats, and likes to make dad jokes constantly. He is a traitor to PawPals, and his arch-nemesis is Sequelize.
           </p>
           <ContactForm></ContactForm>
         </section>
