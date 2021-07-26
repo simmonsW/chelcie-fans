@@ -16,17 +16,33 @@ const SinglePost = props => {
   // console.log(postId);
   const [removePost] = useMutation(REMOVE_POST);
 
-  const currentUser = Auth.getProfile();
-
-  // console.log(currentUser.data);
-
   const { loading, data } = useQuery(QUERY_POST, {
     variables: { id: postId }
   });
   
   const post = data?.post || {};
 
-  // console.log(post);
+  let userPost = false;
+
+  const userPostCheck = function() {
+    if (Auth.loggedIn()) {
+      const currentUser = Auth.getProfile().data.username;
+      // console.log(currentUser);
+
+      if (currentUser === post.username) {
+        return userPost = true;
+      } else {
+        return userPost = false;
+      }
+    } else {
+      return userPost = false;
+    }
+  };
+
+  if (!loading) {
+    userPostCheck();
+    // console.log(userPost);
+  };
 
   const handleClick = async () => {
     try {
@@ -49,7 +65,7 @@ const SinglePost = props => {
     <div>
       <div className="card mb-3">
         <p className="card-header">
-        {currentUser.data.username === post.username && (
+        {userPost === true && (
           <button className="trash-post" onClick={handleClick}><BiTrash /></button>
         )}
           <span style={{ fontWeight: 700 }} className="text-light">
