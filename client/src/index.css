@@ -1,10 +1,11 @@
 :root {
   --primary: #2e0e52;
   --secondary: #5598acff;
+/*   --secondary: #a799f7; */
   --tertiary: #c2b2bf;
   --quatrinary: #dbcada;
   --light: #f3e1f5;
-  --dark: #6c7575;
+  --dark: #2c3030;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -102,6 +103,9 @@ nav a:hover {
   color: #5598acff;
   background-color: #cbdf90ff;
   border-radius: 50px;
+/*   color: var(--secondary);
+  background-color: var(--dark);
+  background: linear-gradient(90deg, rgb(236, 236, 236) 0%, rgb(241, 173, 255) 50%, rgb(255, 101, 209) 100%); */
 }
 
 .page-title {
@@ -109,6 +113,16 @@ nav a:hover {
   width: 100%;
   margin: 0;
   font-size: 2.5rem;
+}
+
+.trash-post {
+  background-color: var(--light);
+  padding: 8px 8px 5px 8px;
+  border-radius: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
 }
 
 .btn,
@@ -298,6 +312,8 @@ color: white;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
+  background: rgb(58,180,180);
+  background: linear-gradient(90deg, rgb(236, 236, 236) 0%, rgb(241, 173, 255) 50%, rgb(255, 101, 209) 100%);
   color: var(--dark);
 }
 
@@ -1063,6 +1079,12 @@ text-decoration-color: rgb(152, 221, 242);
 
 .col-12 {
   flex: 0 0 100%;
+}
+
+/* Custom */
+.review {
+  text-align: center;
+  font-family: Haettenschweiler
 }
 
 /* col-sm */

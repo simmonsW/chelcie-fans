@@ -1,6 +1,6 @@
 // Landing Page, Quote of the Day, Reviews, Submit Post, Posts Feed
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import PostList from '../components/PostList';
 import { QUERY_POSTS, QUERY_ME_BASIC } from '../utils/queries';
@@ -8,8 +8,91 @@ import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
 import PostForm from '../components/PostForm';
 
+// let quoteString = "";
+// var quoteObject = {};
+let testString = "test text";
+
+// function apiCall() {
+
+//   // try {
+
+//     var axios = require("axios").default;
+
+//     var options = {
+//       method: 'GET',
+//       url: 'https://icanhazdadjoke.com/',
+//       headers: {
+//         "Accept": "text/plain"
+//         // "Accept": "application/json"
+//       }
+//     };
+    
+//     axios.request(options).then(function (response) {
+//       // when text/plain is accepted
+//       console.log("FETCHED! " + response.data);
+//       testString = response.data;
+//       return testString;
+  
+//       // when application/json is accepted
+//       // console.log("FETCHED! " + response.data.joke);
+//       // quoteObject = response;
+//     }).catch(function (error) {
+//       console.error(error);
+//     }); 
+
+//   // } catch (e) {
+//   //   console.error(e);
+//   // };
+
+// };
+
+
+
 
 const Home = () => {
+  const [joke, setJoke] = useState("test text");
+
+  if( testString === "test text") {
+    jokeChange();
+    
+  }
+
+  function jokeChange() {
+    var axios = require("axios").default;
+
+    var options = {
+      method: 'GET',
+      url: 'https://icanhazdadjoke.com/',
+      headers: {
+        "Accept": "text/plain"
+        // "Accept": "application/json"
+      }
+    };
+    
+    axios.request(options).then(function (response) {
+      // when text/plain is accepted
+      console.log("FETCHED! " + response.data);
+      testString = response.data;
+      setJoke(testString);
+  
+      // when application/json is accepted
+      // console.log("FETCHED! " + response.data.joke);
+      // quoteObject = response;
+    }).catch(function (error) {
+      console.error(error);
+    }); 
+
+  // } catch (e) {
+  //   console.error(e);
+  // };
+    // apiCall();
+    
+  }
+
+  // jokeChange();
+  // setTimeout(jokeChange, 1000000000000000000000000);
+  
+
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_POSTS);
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
@@ -20,46 +103,26 @@ const Home = () => {
 
   const loggedIn = Auth.loggedIn();
 
-  let quoteString = "";
-
-  /*Api Call*/
-
-
-  var axios = require("axios").default;
-
-  var options = {
-    method: 'GET',
-    url: 'https://dad-jokes.p.rapidapi.com/random/joke',
-    headers: {
-      'x-rapidapi-key': 'fd3c2bc085msh62049fe3043d594p1cd891jsn7d8a7cbcecf8',
-      'x-rapidapi-host': 'dad-jokes.p.rapidapi.com'
-    }
-  };
-  
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-    quoteString = response.data.body.setup + " " + response.data.body.punchline;
-  }).catch(function (error) {
-    console.error(error);
-  }); 
-
 
   return (
     <main>
-        {/* Quote of the Day */}
-        <div>
-          <div id="joke-of-the-day">
-            <h2 id="joke" className= "justify-center-md"> 'Dad joke of the Day'  -  Chelcie </h2>
-          </div>
-        </div>
-        <div className="flex-row justify-space-between">
-        <div className= "justify-center-md">
-          {`${quoteString}`}
-        </div>
+
+//         {/* Quote of the Day */}
+//         <div>
+//           <div id="joke-of-the-day">
+//             <h2 id="joke" className= "justify-center-md"> 'Dad joke of the Day'  -  Chelcie </h2>
+//           </div>
+//         </div>
+
+      <div className="flex-row justify-space-between">
+        <h2 className= "justify-center col-12 text-center"> Dad Joke of the Day </h2>
+        <h4 className= "justify-center col-12 text-center">
+          {joke}
+        </h4>
 
         {/* Reviews */}
-        {/* <h3 className= "justify-center-md"> "Revolutionary" - New York Times </h3>
-        <h3 className= "justify-center-md"> "Mediocre" - PawPals </h3> */}
+        <h3 className= "justify-center col-12 text-center review"> "Revolutionary" - New York Times </h3>
+        <h3 className= "justify-center col-12 text-center review"> "Mediocre" - PawPals </h3>
 
         {loggedIn && (
           <div className="col-12 mb-3">
@@ -70,7 +133,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <PostList posts={posts} title="What's on your mind?..." />
+            <PostList posts={posts} title="Chelcie Feed" />
 
           )}
         </div> 
@@ -87,5 +150,12 @@ const Home = () => {
     </main>
   );
 };
+
+
+
+
+
+
+
 
 export default Home;
