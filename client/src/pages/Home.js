@@ -112,7 +112,7 @@ const Home = () => {
       {/* Quote of the Day */}
       <div>
         <div id="joke-of-the-day" className= "justify-center col-12 text-center">
-            <h2 className= "justify-center col-12 text-center"> Dad joke Roulette! </h2>
+            <h2 className= "justify-center col-12 text-center"> Dad Joke Roulette! </h2>
             <h4 className= "justify-center col-12 text-center">
               {joke}
             </h4>
