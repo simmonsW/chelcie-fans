@@ -164,6 +164,10 @@ nav a:hover {
   font-family:'Apple Chancery','Monotype Corsiva','ITC Zapf Chancery','URW Chancery L';
 }
 
+#logo {
+  padding: 30px;
+}
+
 /* FOOTER */
 
 footer {

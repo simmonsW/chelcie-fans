@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import logoImage from "../../assets/images/logo.svg";
 
 const Header = () => {
   const logout = event => {
@@ -13,7 +14,7 @@ const Header = () => {
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
-          <h1>Chelcie Fans</h1>
+          <img id="logo" src={logoImage} style={{ width: "100%" }} alt="ChelcieFans logo" />
         </Link>
 
         <nav className="text-center nav-items">
