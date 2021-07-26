@@ -10,7 +10,7 @@ import PostForm from '../components/PostForm';
 
 // let quoteString = "";
 // var quoteObject = {};
-let testString = "test text";
+let testString = "";
 
 // function apiCall() {
 
@@ -49,12 +49,12 @@ let testString = "test text";
 
 
 
-let quoteString;
+
 
 const Home = () => {
-  const [joke, setJoke] = useState("test text");
+  const [joke, setJoke] = useState("");
 
-  if( testString === "test text") {
+  if( testString === "") {
     jokeChange();
     
   }
@@ -73,7 +73,7 @@ const Home = () => {
     
     axios.request(options).then(function (response) {
       // when text/plain is accepted
-      console.log("FETCHED! " + response.data);
+      // console.log("FETCHED! " + response.data);
       testString = response.data;
       setJoke(testString);
   
@@ -101,7 +101,7 @@ const Home = () => {
   const { data: userData } = useQuery(QUERY_ME_BASIC);  
 
   const posts = data?.posts || [];
-  console.log(posts);
+  // console.log(posts);
 
   const loggedIn = Auth.loggedIn();
 
@@ -112,7 +112,7 @@ const Home = () => {
       {/* Quote of the Day */}
       <div>
         <div id="joke-of-the-day" className= "justify-center col-12 text-center">
-            <h2 className= "justify-center col-12 text-center"> Dad Joke of the Day </h2>
+            <h2 className= "justify-center col-12 text-center"> Dad joke Roulette! </h2>
             <h4 className= "justify-center col-12 text-center">
               {joke}
             </h4>
