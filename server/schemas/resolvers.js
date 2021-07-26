@@ -77,6 +77,11 @@ const resolvers = {
           { $pull: { posts: postId } },
           { new: true }
         );
+        const updatedPosts = await Post.findOneAndRemove(
+          { _id: postId },
+          { new: true }
+        );
+        console.log(updatedPosts);
 
         return updatedUser;
       }

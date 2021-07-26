@@ -1,6 +1,6 @@
 // Page with Friends, Posts
 
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 
 import PostList from '../components/PostList';
@@ -106,7 +106,7 @@ const Profile = () => {
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
 
-        {userParam && (
+        {userParam && Auth.loggedIn() && (
           <button className="btn ml-auto" onClick={handleClick}>
             {friends() ? 'Unfriend' : 'Add Friend'}
           </button>
