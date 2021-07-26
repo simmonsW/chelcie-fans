@@ -106,6 +106,14 @@ const Home = () => {
 
   return (
     <main>
+
+//         {/* Quote of the Day */}
+//         <div>
+//           <div id="joke-of-the-day">
+//             <h2 id="joke" className= "justify-center-md"> 'Dad joke of the Day'  -  Chelcie </h2>
+//           </div>
+//         </div>
+
       <div className="flex-row justify-space-between">
         <h2 className= "justify-center col-12 text-center"> Dad Joke of the Day </h2>
         <h4 className= "justify-center col-12 text-center">
@@ -121,7 +129,7 @@ const Home = () => {
             <PostForm />
           </div>
         )}
-        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+        <div id="postlist-component" className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (

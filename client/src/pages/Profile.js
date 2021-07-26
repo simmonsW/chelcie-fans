@@ -102,13 +102,14 @@ const Profile = () => {
   return (
     <div>
       <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+        <h2 id="viewing-profile" className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
 
         {userParam && Auth.loggedIn() && (
-          <button className="btn ml-auto" onClick={handleClick}>
+          <button id="add-friend-btn" className="btn ml-auto" onClick={handleClick}>
             {friends() ? 'Unfriend' : 'Add Friend'}
+
           </button>
         )}
 
