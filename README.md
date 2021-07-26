@@ -20,7 +20,7 @@ Project is created using:
 * Heroku
 
 ## **_Usage_**
-![Screen Shot 2021-07-25 at 10 14 44 PM](https://user-images.githubusercontent.com/78329298/126936567-86ed0f75-0797-4d25-b3dc-7d510d6c8c3e.png)
+![Screen Shot 2021-07-25 at 10 33 13 PM](https://user-images.githubusercontent.com/78329298/126937950-cd6f5c47-5601-49c4-8d84-359ae0944b43.png)
 
 ## **_Installation_**
 Here are some guidelines for installing the project on your local machine in order to be able to try it:

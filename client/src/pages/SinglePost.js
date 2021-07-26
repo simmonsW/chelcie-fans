@@ -57,7 +57,6 @@ const SinglePost = props => {
           </span>{' '}
           post on {post.createdAt}
         </p>{' '}
-        <div className="trash-post text-light"><span><BiTrash /></span></div>
         <div className="card-body">
           <p>{post.postText}</p>
         </div>
