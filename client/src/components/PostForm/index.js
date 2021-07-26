@@ -45,7 +45,7 @@ const PostForm = () => {
         try {
           // add post to database
           await addPost({
-            variables: { postText }
+            variables: { postText: postText }
           });
       
           // clear form value
@@ -72,7 +72,7 @@ const PostForm = () => {
             className="form-input col-12 col-md-9"
             onChange={handleChange}
             ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button id="submit-post" className="btn col-12 col-md-3" type="submit">
             Submit
         </button>
         </form>

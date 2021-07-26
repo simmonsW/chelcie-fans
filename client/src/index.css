@@ -1,10 +1,11 @@
 :root {
   --primary: #2e0e52;
-  --secondary: #f799cd;
+  --secondary: #5598acff;
+/*   --secondary: #a799f7; */
   --tertiary: #c2b2bf;
   --quatrinary: #dbcada;
   --light: #f3e1f5;
-  --dark: #6c7575;
+  --dark: #2c3030;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -31,7 +32,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #fff3fee1;
+  background-color: white;
 }
 
 h1,
@@ -48,6 +49,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  color: #cbdf90ff;
 }
 
 h2 {
@@ -87,17 +89,23 @@ a:visited {
 nav {
   width: 100%;
   justify-content: center;
+  color: #cbdf90ff; 
 }
 
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
+  color: #cbdf90ff; 
 }
 
 nav a:hover {
-  color: var(--secondary);
+  color: #5598acff;
+  background-color: #cbdf90ff;
+  border-radius: 50px;
+/*   color: var(--secondary);
   background-color: var(--dark);
+  background: linear-gradient(90deg, rgb(236, 236, 236) 0%, rgb(241, 173, 255) 50%, rgb(255, 101, 209) 100%); */
 }
 
 .page-title {
@@ -105,6 +113,16 @@ nav a:hover {
   width: 100%;
   margin: 0;
   font-size: 2.5rem;
+}
+
+.trash-post {
+  background-color: var(--light);
+  padding: 8px 8px 5px 8px;
+  border-radius: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
 }
 
 .btn,
@@ -131,26 +149,190 @@ nav a:hover {
   display: inline;
 }
 
+/* HOME PAGE */
+
+#joke-of-the-day {
+  background-color: #cbdf90ff;
+  /* width: 100%; */
+  /* margin-top: -29px;
+  margin-left: -106px;
+  margin-right: -606px; */
+  padding: 100px;
+}
+
+#joke {
+  font-family:'Apple Chancery','Monotype Corsiva','ITC Zapf Chancery','URW Chancery L';
+}
+
+/* FOOTER */
+
+footer {
+  background-color: #5598acff;
+  color: #cbdf90ff;
+}
+
+/* CONTACT FORM */
+.contact-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 20vw;
+}
+
+.contact-h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 22px;
+  /* white-space: nowrap; */
+  } 
+
+.contact--form {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 5px solid #CBDF90;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  /* padding: 40px; */
+  }
+
+#btn-submit-form {
+  font-weight: bolder;
+  font-size: 16px;
+  width: 30%;
+  margin: 20px 0 20px 40px;
+  text-decoration: none;
+  padding: 5px 0px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid #5598acff;
+  border-radius: 50px;
+  background-color: #5598acff;
+}
+
+#btn-submit-form:hover {
+  background-color: rgb(105, 188, 213);
+}
+
+.form-line {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 0px;
+  margin: 0 20px;
+}
+
+.label {
+  font-weight: bolder;
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.input {
+  font-size: 14px;
+  line-height: 2em;
+}
+
+/* ABOUT PAGE */
+
+#about {
+  text-align: center;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+}
+
+.responsive {
+  align-items: center;
+  min-width: 260px;
+  border-radius: 500px;
+  border: 6px solid #CBDF90;
+}
+
+#photo-chelcie {
+box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#description-about {
+  color: black;
+}
+
+/* HOME */
+
+#postlist-component {
+  margin-top: 40px;
+}
+
+#submit-post {
+/* color: #cbdf90ff; */
+color: white;
+}
+
+#connect-home {
+  color: white;
+}
+
+/* SINGLE POST */
+
+/* PROFILE */
+#add-friend-btn {
+  color: white;
+}
+
+#viewing-profile {
+  color: white;
+  background-color: #5598acff;
+}
+
+#submit-reply {
+  color: white;
+  /* background-color: #CBDF90; */
+  /* background-color: #6db75cff; */
+  background-color: #5598acff;
+}
+
+/* SIGN UP */
+#signup-submit {
+color: white;
+}
+
+/* LOG IN */
+#login-submit {
+  color: white;
+}
+
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
+  background: rgb(58,180,180);
+  background: linear-gradient(90deg, rgb(236, 236, 236) 0%, rgb(241, 173, 255) 50%, rgb(255, 101, 209) 100%);
   color: var(--dark);
 }
 
 .card-header {
   color: var(--secondary);
   margin: 0;
-  background-color: var(--dark);
+  background-color: #eeeeeeff;
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+}
+
+div.card.mb-3 {
+  border-color: #5598ac;
 }
 
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+  background-color:white;
 }
 
 /* FORM */
@@ -764,7 +946,13 @@ nav a:hover {
 }
 
 .text-light {
-  color: var(--light);
+  color: #5598acff;
+}
+
+.text-light-other {
+color: #5598acff;
+text-decoration: underline;
+text-decoration-color: rgb(152, 221, 242);
 }
 
 .text-dark {
@@ -891,6 +1079,12 @@ nav a:hover {
 
 .col-12 {
   flex: 0 0 100%;
+}
+
+/* Custom */
+.review {
+  text-align: center;
+  font-family: Haettenschweiler
 }
 
 /* col-sm */

@@ -1,7 +1,9 @@
 // Contact form to send to the founder
 
 import React, { useState } from 'react';
+
 import { validateEmail } from '../../utils/helpers'
+
 
 function ContactForm() {
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -33,7 +35,7 @@ function ContactForm() {
         }
     }
       
-    // console.log(formState);
+    console.log(formState);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -42,20 +44,21 @@ function ContactForm() {
 
     // JSX
     return (
-        <section>
-            <h1 data-testid="h1tag">Contact Chelcie</h1>
+        <section className="contact-form-section">
+            <h1 className="contact-h1" data-testid="h1tag">Contact Chelcie</h1>
+            <div className="contact--form">
             <form id="contact-form" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" defaultValue={name} onBlur={handleChange} name="name" />
+                <div className="form-line">
+                    <label className="label" htmlFor="name">Name:</label>
+                    <input className="input" type="text" defaultValue={name} onBlur={handleChange} name="name" />
                 </div>
-                <div>
-                    <label htmlFor="email">Email address:</label>
-                    <input type="email" defaultValue={email} name="email" onBlur={handleChange} />
+                <div className="form-line">
+                    <label className="label" htmlFor="email">Email address:</label>
+                    <input className="input" type="email" defaultValue={email} name="email" onBlur={handleChange} />
                 </div>
-                <div>
-                    <label htmlFor="message">Message:</label>
-                    <textarea name="message" defaultValue={message} onBlur={handleChange} rows="5" />
+                <div className="form-line">
+                    <label className="label" htmlFor="message">Message:</label>
+                    <textarea className="textarea" name="message" defaultValue={message} onBlur={handleChange} rows="5" />
                 </div>
             </form>
             {errorMessage && (
@@ -63,7 +66,8 @@ function ContactForm() {
                     <p className="error-text">{errorMessage}</p>
                 </div>
             )}
-            <button data-testid="button" type="submit">Submit</button>
+            <button id="btn-submit-form" data-testid="button" type="submit">Submit</button>
+            </div>
         </section>
     );
 
